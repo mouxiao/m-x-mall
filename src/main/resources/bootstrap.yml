@@ -1,0 +1,19 @@
+#
+#spring:
+#  application:
+#    name: m-x-mall
+#  cloud:
+#    consul:
+#      host: 127.0.0.1
+#      port: 8500
+#      enabled: true
+#      config:
+#        format: yaml #kv 值读取格式
+#        data-key: configuration #读取配置中心的根目录路径
+#        profile-separator: ","
+#      discovery:
+#        instance-id: m-${spring.application.name}-${spring.profiles.active}-1
+#        service-name: app-${spring.application.name}-${spring.profiles.active}-2
+#        enabled: true
+#
+#

@@ -1,0 +1,11 @@
+#
+#spring:
+#  application:
+#    name: m-x-mall
+#  cloud:
+#    consul:
+#      host: 127.0.0.1
+#      port: 8500
+#      discovery:
+#        instance-id: m-${spring.application.name}-${spring.profiles.active}-${spring.cloud.consul.port}-1
+#        service-name: app-${spring.application.name}-${spring.profiles.active}-${spring.cloud.client.ipAddress}-1

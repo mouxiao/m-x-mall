@@ -1,0 +1,26 @@
+
+spring:
+  application:
+    name: m-x-mall
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      enabled: true #是否使用consul配置
+      config:
+        data-key: configuration #读取配置中心的根目录路径
+        profile-separator: ","
+        format: yaml
+        watch:
+          delay: 1000 # 配置刷新频率
+          enabled: true #是否开启配置刷新
+      discovery:
+        enabled: true #是否开启consul服务发现
+        register: true #是否注册服务到consul
+#        instance-id: m-${spring.application.name}-${spring.profiles.active}-${spring.cloud.consul.port}-2 #实例ID，多节点提供唯一id
+        instanceId: ${spring.application.name}-${spring.profiles.active}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        service-name: service-${spring.application.name}-${spring.profiles.active} #服务名
+        health-check-path: /actuator/health # 健康检查路径
+        health-check-interval: 5s #健康检查间隔
+        register-health-check: true #是否开启健康检查
+
